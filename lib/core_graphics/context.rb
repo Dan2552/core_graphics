@@ -5,9 +5,8 @@ module CoreGraphics
       c__initialize(position.x, position.y, size.width, size.height)
     end
 
-    # C code: sdl_world_rb_orbit
-    # def c__orbit
-
-    # attr_accessor :delegate
+    def draw
+      c__orbit
+    end
   end
 end

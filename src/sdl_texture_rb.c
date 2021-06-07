@@ -91,8 +91,6 @@ mrb_value sdl_texture_clear(mrb_state *mrb, mrb_value self) {
   SDL_Texture *texture = texture_wrap->texture;
   SDL_Renderer *renderer = world->renderer;
 
-  SDL_SetRenderTarget(renderer, texture);
-
   mrb_int red_rb;
   mrb_int green_rb;
   mrb_int blue_rb;
@@ -112,6 +110,7 @@ mrb_value sdl_texture_clear(mrb_state *mrb, mrb_value self) {
   int blue = blue_rb;
   int alpha = alpha_rb;
 
+  SDL_SetRenderTarget(renderer, texture);
   SDL_SetRenderDrawColor(renderer, red, green, blue, alpha);
   SDL_RenderClear(renderer);
 
@@ -152,7 +151,20 @@ mrb_value sdl_texture_draw_child_texture(mrb_state *mrb, mrb_value self) {
   };
 
   SDL_SetRenderTarget(renderer, texture);
+  SDL_SetTextureBlendMode(child_texture, SDL_BLENDMODE_BLEND);
   SDL_RenderCopy(renderer, child_texture, NULL, &rect_of_shadow_image);
+
+  return mrb_nil_value();
+}
+
+mrb_value sdl_texture_draw(mrb_state *mrb, mrb_value self) {
+  SDLTextureWrap *texture_wrap = sdl_texture_unwrap(mrb, self);
+  SDLWorld *world = texture_wrap->world;
+  SDL_Renderer *renderer = world->renderer;
+  SDL_Texture *texture = texture_wrap->texture;
+
+  SDL_SetRenderTarget(renderer, NULL);
+  SDL_RenderCopy(renderer, texture, NULL, NULL);
 
   return mrb_nil_value();
 }
