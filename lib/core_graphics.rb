@@ -1,4 +1,8 @@
 require "core_graphics/version"
+require "core_graphics/layer"
 require "core_graphics/point"
 require "core_graphics/rectangle"
 require "core_graphics/size"
+require "core_graphics/image"
+require "core_graphics/context"
+require "core_graphics/font"

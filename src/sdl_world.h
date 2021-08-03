@@ -8,6 +8,8 @@ typedef struct SDLWorld {
   SDL_Renderer *renderer;
   int render_screen_width;
   int render_screen_height;
+  int pixel_screen_width;
+  int pixel_screen_height;
   int status;
 } SDLWorld;
 

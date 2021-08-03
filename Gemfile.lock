@@ -1,17 +1,17 @@
 GIT
   remote: https://github.com/Dan2552/mrbrspec
-  revision: 09ce1badc740aa630ec53b7a6b1352be066ef512
+  revision: cfccececfb5e1df61b4fadf15bbed225140f0a87
   specs:
     mrbrspec (0.1.0)
 
 GIT
   remote: https://github.com/Dan2552/mundler
-  revision: 24067af93b4efeae038e34e71c5160a0ba8eb57c
-  tag: 0.4.0
+  revision: 1316ec2c9545408b51e67b7c95d261c587a2787c
+  tag: 0.7.0
   specs:
-    mundler (0.4.0)
+    mundler (0.7.0)
       rake
-      thor (~> 1.1.0)
+      thor
 
 PATH
   remote: .
@@ -22,7 +22,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.4.4)
-    rake (13.0.3)
+    rake (13.0.6)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -48,4 +48,4 @@ DEPENDENCIES
   rspec
 
 BUNDLED WITH
-   2.2.16
+   2.2.24

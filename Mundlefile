@@ -1,9 +1,13 @@
-# mruby/mruby 0f45836
+mruby tag: "3.0.0"
 
-only_host_platform!
+sdl_install = `brew --prefix sdl2`.chomp
+sdl_image_install = `brew --prefix sdl2_image`.chomp
+sdl_ttf_install = `brew --prefix sdl2_ttf`.chomp
 
-conf.gembox 'default'
+platform :host,
+         cc: { flags: "-I#{sdl_install}/include/SDL2 -I#{sdl_image_install}/include/SDL2 -I#{sdl_ttf_install}/include/SDL2" },
+         linker: { flags: "-L#{sdl_install}/lib -L#{sdl_image_install}/lib -L#{sdl_ttf_install}/lib -lSDL2 -lSDL2_image -lSDL2_ttf" }
 
-conf.gem(Dir.pwd)
-conf.gem(core: "mruby-bin-mruby")
-conf.gem(github: "Dan2552/mruby-irb_like_debugger")
+gembox "default"
+gem "core_structures", path: "."
+gem "mruby-irb_like_debugger", github: "Dan2552/mruby-irb_like_debugger"

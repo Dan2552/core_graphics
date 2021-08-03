@@ -30,6 +30,11 @@ mrb_value sdl_world_rb_initialize(mrb_state *mrb, mrb_value self) {
 
   sdl_world_rb_wrap(mrb, self, world);
 
+  mrb_iv_set(mrb, self, mrb_intern_lit(mrb, "@render_width"), mrb_fixnum_value(world->render_screen_width));
+  mrb_iv_set(mrb, self, mrb_intern_lit(mrb, "@render_height"), mrb_fixnum_value(world->render_screen_height));
+  mrb_iv_set(mrb, self, mrb_intern_lit(mrb, "@pixel_width"), mrb_fixnum_value(world->pixel_screen_width));
+  mrb_iv_set(mrb, self, mrb_intern_lit(mrb, "@pixel_height"), mrb_fixnum_value(world->pixel_screen_height));
+
   return mrb_nil_value();
 }
 
